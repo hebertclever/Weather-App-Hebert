@@ -1,17 +1,36 @@
 import React from 'react';
+import DailyForecastCard from './DailyForecastCard';
 
 const WeatherForecast = ({ forecastData }) => {
+  const list = forecastData && forecastData.list ? forecastData.list : [];
+
+  const dailyForecast = list.reduce((acc, curr) => {
+    const date = new Date(curr.dt * 1000).toISOString().split('T')[0];
+
+    if (acc[date]) {
+      acc[date].temp_min = Math.min(acc[date].temp_min, curr.main.temp_min);
+      acc[date].temp_max = Math.max(acc[date].temp_max, curr.main.temp_max);
+      acc[date].weather = curr.weather[0];
+    } else {
+      acc[date] = {
+        temp_min: curr.main.temp_min,
+        temp_max: curr.main.temp_max,
+        weather: curr.weather[0],
+      };
+    }
+
+    return acc;
+  }, {});
+
+  const dailyForecastArray = Object.entries(dailyForecast).map(([date, forecast]) => ({
+    date,
+    ...forecast,
+  }));
+
   return (
     <div>
-      {forecastData.map((forecast, index) => (
-        <div key={index}>
-          <h3>{new Date(forecast.dt * 1000).toLocaleString()}</h3>
-          <p>Temperature: {forecast.main.temp}°C</p>
-          <p>Feels Like: {forecast.main.feels_like}°C</p>
-          <p>Humidity: {forecast.main.humidity}%</p>
-          <p>Pressure: {forecast.main.pressure} hPa</p>
-          <p>Wind Speed: {forecast.wind.speed} m/s</p>
-        </div>
+      {dailyForecastArray.map((forecast, index) => (
+        <DailyForecastCard key={index} forecast={forecast} />
       ))}
     </div>
   );

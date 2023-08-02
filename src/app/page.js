@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import LocationSearch from '../../components/LocationSearch';
-import Weekly from '../../components/Weekly';
 import LocationSearchInput from '../../components/LocationSearchInput';
 import WeatherForecast from '../../components/WeatherForecast';
+import WeatherCard from '../../components/WeatherCard';
 
 export default function Home() {
   const [weather, setWeather] = useState(null);
@@ -33,9 +33,9 @@ export default function Home() {
 
     try {
       const response = await fetch(url);
-      const data = await response.json();
+      const data = await response.json('');
 
-      setForecast(data.list);  // store forecast data
+      setForecast(data); 
     } catch (error) {
       console.error('Error fetching forecast data:', error);
     }
@@ -52,9 +52,10 @@ export default function Home() {
           <p>Temperature: {weather.main.temp}°C</p>
           <p>Feels Like: {weather.main.feels_like}°C</p>
           <p>Humidity: {weather.main.humidity}%</p>
-          <p>Pressure: {weather.main.pressure} hPa</p>
+          <p>Pressure: {weather.main.pressure} mb</p>
           <p>Visibility: {weather.visibility} m</p>
           <p>Wind Speed: {weather.wind.speed} m/s</p>
+          
         </div>
       )}
       {forecast && <WeatherForecast forecastData={forecast} />}  
