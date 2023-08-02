@@ -1,29 +1,24 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationCrosshairs } from '@fortawesome/free-solid-svg-icons'
+import { convertTempToFahrenheit, formatDate } from '../utils';
+import weatherImages from '../weatherImages.json'
 
-const WeatherCard = () => {
+function WeatherCard({ data, index, unit }) {
+  const date = new Date(data.dt * 1000);
+  
+  const weatherImage = weatherImages.find(image => 
+    image.name.toLowerCase() === data.weather[0].main.toLowerCase()
+  );
+
+  const tempMin = unit === 'C' ? data.temp.min : convertTempToFahrenheit(data.temp.min);
+  const tempMax = unit === 'C' ? data.temp.max : convertTempToFahrenheit(data.temp.max);
+
   return (
-    <main className="grid gap-8 sm:grid-cols-2">
-    <section className='bg-primary w-screen h-screen  max-w-lg box-border'>
-      <div className="flex flex-row p-5">
-        <button className="">Search for places</button>
-        <FontAwesomeIcon className="w-10 ml-auto" icon={faLocationCrosshairs}/>
-      </div>
-      <div className="flex flex-col items-center">
-      <script>
-
-      </script>
-              
-      </div>  
-
-    </section>
-
-    <section className="bg-background">
-
-    </section>
-  </main>
-  )
+    <div>
+      <p>{formatDate(date, index)}</p>
+      {weatherImage && <img src={weatherImage.url} alt={weatherImage.name} />}
+      <p>Min Temp: {tempMin}°{unit}</p>
+      <p>Max Temp: {tempMax}°{unit}</p>
+    </div>
+  );
 }
 
-export default WeatherCard
+export default WeatherCard;
