@@ -53,6 +53,9 @@ const WeatherForecast = ({ forecastData }) => {
 
   return (
     <div>
+      <div className='flex flex-row bg-primary'>
+
+      </div>
       {dailyForecastArray.map((forecast, index) => (
         <DailyForecastCard key={index} forecast={forecast} />
       ))}

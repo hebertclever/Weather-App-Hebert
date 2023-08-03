@@ -31,13 +31,7 @@ const weatherImageMap = {
 const DailyForecastCard = ({ forecast, index }) => {
   const { date, temp_min, temp_max, weather } = forecast;
 
-  function toPascalCase(string) {
-    return string.match(/\w+/g)
-      .map(function(word) {
-        return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
-      })
-      .join('');
-  }
+ 
 
   let displayDate;
 
@@ -52,7 +46,7 @@ const DailyForecastCard = ({ forecast, index }) => {
     displayDate = format(dateObject, 'EEE, d MMM');
   }
 
-  const weatherDescription = toPascalCase(weather.description);
+  const weatherDescription = weather.description.toLowerCase();
   const imageSrc = weatherImageMap[weatherDescription] || HeavyCloud;
 
   console.log(weather.description);
@@ -60,8 +54,8 @@ const DailyForecastCard = ({ forecast, index }) => {
   return (
     <div>
       <h3>{displayDate}</h3>
-      <p>Min Temperature: {temp_min}°C</p>
-      <p>Max Temperature: {temp_max}°C</p>
+      <p>{temp_max}°C</p>
+      <p>{temp_min}°C</p>
       <Image src={imageSrc} alt={weatherDescription}/>
     </div>
   );
