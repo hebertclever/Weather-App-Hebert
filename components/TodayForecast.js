@@ -36,7 +36,7 @@ const TodayForecast = ({ weather }) => {
 
     return (
       <div>
-        <Image src={imageSrc} alt={description} />
+        <Image src={imageSrc} alt={description}  />
       </div>
     );
 };

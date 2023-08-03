@@ -17,6 +17,7 @@ module.exports = {
         'background': '#100E1D',
         'primary': '#1E213A',
         'text': '#E7E7EB',
+        'text2': '#A09FB1',
         'barraAmarela': '#FFEC65',
       },
     },
