@@ -4,7 +4,8 @@ import { useState } from 'react';
 import LocationSearch from '../../components/LocationSearch';
 import LocationSearchInput from '../../components/LocationSearchInput';
 import WeatherForecast from '../../components/WeatherForecast';
-import WeatherCard from '../../components/WeatherCard';
+import WeatherCard from '../../components/ForecastList';
+import ForecastList from '../../components/ForecastList';
 
 export default function Home() {
   const [weather, setWeather] = useState(null);
@@ -58,7 +59,8 @@ export default function Home() {
           
         </div>
       )}
-      {forecast && <WeatherForecast forecastData={forecast} />}  
+      {forecast && <WeatherForecast forecastData={forecast} />} 
+      
     </div>
   );
 }
