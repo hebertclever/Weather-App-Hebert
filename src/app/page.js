@@ -52,11 +52,16 @@ export default function Home() {
   };
 
   useEffect(() => {
-    // Coordenadas de São Paulo
-    const defaultLat = -23.5505;
-    const defaultLng = -46.6333;
-    handleSearch(defaultLat, defaultLng);
+    navigator.geolocation.getCurrentPosition(async (position) => {
+      const { latitude, longitude } = position.coords;
+      await handleSearch(latitude, longitude);
+    }, (error) => {
+      
+      console.error('Error obtaining location, defaulting to São Paulo: ', error);
+      handleSearch(-23.5505, -46.6333);
+    });
   }, []);
+
 
 
   return (
