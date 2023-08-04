@@ -35,9 +35,9 @@ const LocationSearch = ({ onSearch }) => {
     return (
         <section>
             <div className="flex flex-row p-5">
-                <input
+                <input className='p-3'
                     type="text"
-                    placeholder="Search for places..."
+                    placeholder="Search City, State, Zip Code "
                     value={city}
                     onKeyDown={handleSearch}
                     onChange={(e) => setCity(e.target.value)}

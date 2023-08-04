@@ -5,6 +5,7 @@
   const ForecastList = ({ forecasts }) => {
 
     console.log(forecasts);
+    
   
     const nextFiveDaysForecast = forecasts.filter((forecast, index) => index < 5);
   
