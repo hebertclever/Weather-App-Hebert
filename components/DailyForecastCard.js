@@ -44,18 +44,22 @@ const DailyForecastCard = ({ forecast, index }) => {
     displayDate = format(dateObject, 'EEE, d MMM');
   }
 
-  const weatherDescription = weather && weather.description ? weather.description.toLowerCase() : "";
+  const weatherDescription = weather && weather[0] && weather[0].description ? weather[0].description.toLowerCase() : "";
+
+
+  console.log(weatherDescription);
+
 
   const imageSrc = weatherImageMap[weatherDescription] || HeavyCloud;
 
   console.log(imageSrc);
 
   return (
-    <div>
+    <div className='bg-primary m-2 p-2 w-48 h-48'>
       <h3>{displayDate}</h3>
+      <Image src={imageSrc} alt={weatherDescription} width={40} height={100} />
       <p>{main.temp_max}°C</p>
-      <p>{main.temp_min}°C</p>
-      <Image src={imageSrc} alt={weatherDescription}/>
+      <p>{main.temp_min}°C</p>      
     </div>
   );
 };

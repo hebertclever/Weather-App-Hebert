@@ -123,11 +123,11 @@ export default function Home() {
     </section>
 
   
-    <section className='container2'>
+    <section className='container2 sm:bg-background'>
 
-      <div className='cards-day'>
+      <div className='cards-day bg-background'>
 
-        <div>
+        <div className='w-30'>
         
         {forecast && <ForecastList forecasts={forecast.list} className='text-white' />}
 
