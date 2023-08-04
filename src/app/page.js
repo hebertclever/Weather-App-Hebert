@@ -129,7 +129,7 @@ export default function Home() {
 
         <div>
         
-        {forecast && <ForecastList forecasts={forecast.list} />}
+        {forecast && <ForecastList forecasts={forecast.list} className='text-white' />}
 
 
         </div>

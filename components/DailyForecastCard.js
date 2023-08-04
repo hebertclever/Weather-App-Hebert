@@ -29,9 +29,7 @@ const weatherImageMap = {
 
 
 const DailyForecastCard = ({ forecast, index }) => {
-  const { date, temp_min, temp_max, weather } = forecast;
-
- 
+  const { date, main, weather } = forecast;
 
   let displayDate;
 
@@ -50,17 +48,18 @@ const DailyForecastCard = ({ forecast, index }) => {
 
   const imageSrc = weatherImageMap[weatherDescription] || HeavyCloud;
 
-  console.log(weather.description);
+  console.log(imageSrc);
 
   return (
     <div>
       <h3>{displayDate}</h3>
-      <p>{temp_max}°C</p>
-      <p>{temp_min}°C</p>
+      <p>{main.temp_max}°C</p>
+      <p>{main.temp_min}°C</p>
       <Image src={imageSrc} alt={weatherDescription}/>
     </div>
   );
 };
+
 
 
 export default DailyForecastCard;
