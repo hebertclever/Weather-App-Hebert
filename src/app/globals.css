@@ -14,3 +14,35 @@
 body{
     background-color: #100E1D;
 }
+
+.cards-container{
+    display: inline-flex;
+}
+
+.cards-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 177px;
+   
+    
+}
+
+
+
+.temperatura-cards{
+    display: inline-flex;
+    margin-top: 30px;
+    
+}
+
+.card-image{
+    margin-top: 30px;
+}
+
+.card-text-2{
+    margin-left: 22px;
+    color: #A09FB1;
+}

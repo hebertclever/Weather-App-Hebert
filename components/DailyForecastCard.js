@@ -55,12 +55,18 @@ const DailyForecastCard = ({ forecast, index }) => {
   console.log(imageSrc);
 
   return (
-    <div className='bg-primary m-2 p-2 w-48 h-48'>
+    <div className='cards-container'>
+      <div className='cards-component bg-primary m-2 p-2 w-10 h-48 text-white'>
       <h3>{displayDate}</h3>
-      <Image src={imageSrc} alt={weatherDescription} width={40} height={100} />
-      <p>{main.temp_max}°C</p>
-      <p>{main.temp_min}°C</p>      
+      <Image className='card-image' src={imageSrc} alt={weatherDescription} width={40} height={100} />
+      <div className='temperatura-cards'>
+      <p>{Math.round(main.temp_max)}°C</p>
+      <p className='card-text-2 text-text2'>{Math.round(main.temp_min)}°C</p> 
+      </div>
+         
     </div>
+    </div>
+    
   );
 };
 

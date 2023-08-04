@@ -60,11 +60,13 @@ export default function Home() {
 
 
   return (
-    <main className='grid md:grid-cols-2 bg-background h-screen w-screen'>
+
+    <div>
+    <main className='grid md:grid-cols-2 bg-background'>
       
     
-    <section className='container1 bg-primary md:min-w-screen md:max-w-md m-0'>
-        <div className='h-5'>
+      <section className='container1 bg-primary box-border md:max-w-md m-0 lg:max-w-sm xl:max-md 2xl:max-w-md'>
+        <div>
         <LocationSearch onSearch={handleSearch} />
         </div>
 
@@ -145,6 +147,9 @@ export default function Home() {
 
     </section>
   </main>
+
+  </div> 
+    
   
 
   

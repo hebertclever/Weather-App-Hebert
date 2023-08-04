@@ -33,7 +33,7 @@ const LocationSearch = ({ onSearch }) => {
     };
 
     return (
-        <section className='bg-primary w-screen h-screen  max-w-lg'>
+        <section>
             <div className="flex flex-row p-5">
                 <input
                     type="text"
