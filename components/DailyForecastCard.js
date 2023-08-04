@@ -55,8 +55,8 @@ const DailyForecastCard = ({ forecast, index }) => {
   console.log(imageSrc);
 
   return (
-    <div className='cards-container'>
-      <div className='cards-component bg-primary m-2 p-2 w-10 h-48 text-white'>
+    <div className='cards-container h-20'>
+      <div className='cards-component bg-primary m-2 p-2 w-10 h-20 text-white'>
       <h3>{displayDate}</h3>
       <Image className='card-image' src={imageSrc} alt={weatherDescription} width={40} height={100} />
       <div className='temperatura-cards'>

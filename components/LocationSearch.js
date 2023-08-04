@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationCrosshairs } from '@fortawesome/free-solid-svg-icons';
+
 
 const LocationSearch = ({ onSearch }) => {
     const [city, setCity] = useState('');
     const [loading, setLoading] = useState(false);
+
+    const GoogleAPI = 'AIzaSyA_GwRHzazPmJXsV3IA2JhsjWYlmPHuids'
 
     const handleSearch = async (e) => {
         if (e.key && e.key !== 'Enter') {
@@ -13,7 +14,7 @@ const LocationSearch = ({ onSearch }) => {
 
         setLoading(true);
         try {
-            const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=${process.env.NEXT_PUBLIC_GEOCODE_KEY}`;
+            const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=${GoogleAPI}`;
 
             const response = await fetch(url);
             const dataGeoLocation = await response.json();
