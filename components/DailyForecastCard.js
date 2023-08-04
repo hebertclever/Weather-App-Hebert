@@ -46,7 +46,8 @@ const DailyForecastCard = ({ forecast, index }) => {
     displayDate = format(dateObject, 'EEE, d MMM');
   }
 
-  const weatherDescription = weather.description.toLowerCase();
+  const weatherDescription = weather && weather.description ? weather.description.toLowerCase() : "";
+
   const imageSrc = weatherImageMap[weatherDescription] || HeavyCloud;
 
   console.log(weather.description);

@@ -61,19 +61,27 @@ export default function Home() {
 
   return (
     <main className='grid md:grid-cols-2 bg-background h-screen w-screen'>
+      
     
     <section className='container1 bg-primary md:min-w-screen md:max-w-md m-0'>
+        <div className='h-5'>
+        <LocationSearch onSearch={handleSearch} />
+        </div>
 
       <div className='flex flex-row items-center mx-8 mt-3 mb-20'>
+      
         <button className='p-3 px-6 bg-cinza text-center text-white'>Search for places</button>
+        
 
         <div className='p-5 ml-auto w-20'><FontAwesomeIcon icon={faLocationCrosshairs} 
         className=' bg-cinza 
         rounded-full text-xl text-white p-4' /></div>
         
       </div>
+      
 
 <div className='flex flex-col items-center mt-28'>
+
   <div style={backgroundImage} className='temperature image bg-cover '>
     <div className='flex items-center justify-center h-full'>
       <TodayForecast weather={weather?.weather} />
@@ -111,13 +119,31 @@ export default function Home() {
       </>
     )}
   </div>
-</div>
-
-
-    
+</div>    
     </section>
+
   
-    <section className='container2'></section>
+    <section className='container2'>
+
+      <div className='cards-day'>
+
+        <div>
+        
+        {forecast && <ForecastList forecasts={forecast.list} />}
+
+
+        </div>
+
+
+      </div>
+
+
+
+
+      <div className='today-highlights'></div>
+
+
+    </section>
   </main>
   
 
