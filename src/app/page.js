@@ -7,7 +7,7 @@ import WeatherForecast from '../../components/WeatherForecast';
 import WeatherCard from '../../components/ForecastList';
 import ForecastList from '../../components/ForecastList';
 import TodayForecast from '../../components/TodayForecast';
-import { faLocationCrosshairs, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faLocationCrosshairs, faLocationDot, faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import backgroundImage from '/images/HeavyCloud.png'
 import format from 'date-fns/format';
@@ -62,10 +62,9 @@ export default function Home() {
   return (
 
     <div>
-    <main className='grid md:grid-cols-2 bg-background'>
-      
-    
-      <section className='container1 bg-primary box-border md:max-w-md m-0 lg:max-w-sm xl:max-md 2xl:max-w-md'>
+    <main className='main-grid sm:col-1 lg:col-end-1'>
+    <section className='container1 bg-primary box-border md:max-w-md m-0 
+    lg:max-w-sm xl:max-md 2xl:max-w-md'>
         <div>
         <LocationSearch onSearch={handleSearch} />
         </div>
@@ -125,17 +124,91 @@ export default function Home() {
     </section>
 
   
-    <section className='container2 sm:bg-background'>
+    <section className='container2 p-9 grid grid-cols-1 '>
 
-      <div className='cards-day bg-background'>
+      <div className='cards-day bg-background  items-center'>
 
-        <div className='w-30'>
-        
+
+        <div className='flex '>      
         {forecast && <ForecastList forecasts={forecast.list} className='text-white' />}
-
-
         </div>
+        
+        {weather && (
+      <>
+      <div className='todays-cards bg-primary mt-5 w-96 h-52 ml-1 d-flex 
+       justify-center items-center text-center text-text'>
+        
+        <div>
+          <div>
+          <h1 className='pt-7 text-base font-medium'>Wind status</h1>
+          </div>            
+            <div className='flex justify-center items-center mt-4'>                
+                <p className='text-6xl '>{ Math.round(weather.wind.speed)}</p> 
+                <p className='text-4xl'>mph</p>
+            </div>
+            <div className='flex justify-center items-center mt-4'>
+                <FontAwesomeIcon icon={faLocationArrow} rotation={180} />
+                <p className='ml-2'>WSW</p>
+            </div>
+        </div>
+      </div>
+      <div className='todays-cards bg-primary mt-5 w-96 h-52 ml-1 d-flex 
+       justify-center items-center text-center text-text'>
+        
+        <div>
+          <div>
+          <h1 className='pt-7 text-base font-medium'>Humidity</h1>
+          </div>            
+            <div className='flex justify-center items-center mt-4'>                
+                <p className='text-6xl '>{ Math.round(weather.main.humidity)}</p> 
+                <p className='text-4xl'>%</p>
+            </div>
+            <div className='flex justify-center items-center mt-4 '>
+                <FontAwesomeIcon icon={faLocationArrow} rotation={180} />
+                <p className='ml-2'>WSW</p>
+            </div>
+        </div>
+      </div>
+      <div className='todays-cards bg-primary mt-5 w-96 h-40 ml-1 d-flex 
+       justify-center items-center text-center text-text'>
+        
+        <div>
+          <div>
+          <h1 className='pt-7 text-base font-medium'>Visibility</h1>
+          </div>            
+            <div className='flex justify-center items-center mt-4'>                
+                <p className='text-6xl mr-2 '>{ Math.round(weather.visibility)}</p> 
+                <p className='text-4xl'>mph</p>
+            </div>
+            <div className='flex justify-center items-center mt-4'>
+                
+               
+            </div>
+        </div>
+      </div>
+      <div className='todays-cards bg-primary mt-5 w-96 h-40 ml-1 d-flex 
+       justify-center items-center text-center text-text'>
+        
+        <div>
+          <div>
+          <h1 className='pt-7 text-base font-medium'>Air Pressure</h1>
+          </div>            
+            <div className='flex justify-center items-center mt-4'>                
+                <p className='text-6xl '>{ Math.round(weather.main.pressure)}</p> 
+              
+            </div>
+            <div className='flex justify-center items-center mt-4'>
+                
+                
+            </div>
+        </div>
+      </div>
+    
 
+              
+      </>
+    )}
+       
 
       </div>
 
