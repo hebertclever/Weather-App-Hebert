@@ -173,7 +173,7 @@ export default function Home() {
                       <p className='text-4xl'>%</p>
                     </div>
                     <div className='flex justify-center items-center mt-4 '>
-                      <FontAwesomeIcon icon={faLocationArrow} rotation={180} />
+                     
                       <p className='ml-2'>WSW</p>
                     </div>
                   </div>
@@ -185,9 +185,9 @@ export default function Home() {
                     <div>
                       <h1 className='pt-7 text-base font-medium'>Visibility</h1>
                     </div>
-                    <div className='flex justify-center items-center mt-4'>
+                    <div className='flex justify-center items-baseline mt-4'>
                       <p className='text-6xl mr-2 '>{(weather.visibility * 0.000621371).toFixed(1)} </p>
-                      <p className='text-4xl'>mph</p>
+                      <p className='text-4xl'>miles</p>
                     </div>
                     <div className='flex justify-center items-center mt-4'>
 
@@ -202,8 +202,9 @@ export default function Home() {
                     <div>
                       <h1 className='pt-7 text-base font-medium'>Air Pressure</h1>
                     </div>
-                    <div className='flex justify-center items-center mt-4'>
-                      <p className='text-6xl '>{Math.round(weather.main.pressure)}</p>
+                    <div className='flex justify-center items-baseline mt-4'>
+                      <p className='text-6xl mr-3'>{Math.round(weather.main.pressure)}</p>
+                      <p className='text-4xl'>mb</p>
 
                     </div>
                     <div className='flex justify-center items-center mt-4'>
